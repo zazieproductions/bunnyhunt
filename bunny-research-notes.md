@@ -278,3 +278,53 @@ Logic verified in Node against 8 URLs (all four mirrors, a contrived unknown dom
 Four domains, one dead ID. The mirrors are vocabulary and evidence, not shops. There is nothing left to learn from links of this shape, which is why the tool now answers them automatically.
 
 Live threads remain: Yiwugo **983810072** (`LIT0320`, 小兔 ¥1.00, 40,140 in stock, 李红群 `13335959405` / WeChat) · Yiwugo 971022812, 971031644, 965378567 · 1688 shop `2214100418246` via Superbuy/CSSBuy/Sugargoo · eBay & Mercari saved-search alerts · repair.
+
+---
+
+# Part 8 — 2 November 2026: the mould family, seen from the cat
+
+## The user's evidence (now the most important artifact in this project)
+Two photos supplied, both saved in the repo:
+- `reference-5pose-bunny-set.jpg` (Amazon CDN id `51p6b5keUSL`) — the five-pose **white rabbit** set. The wanted bunny is pose 1.
+- `reference-5pose-grey-cat-set.jpg` (Alibaba CDN `H8c5370c035f649818aefeb0d69f99783F`) — the five-pose **grey cat** set from product `1600426959077`.
+
+Pose-by-pose the two sets are the same sculptures:
+| # | pose | rabbit | cat |
+|---|---|---|---|
+|1|seated, back legs splayed sideways, eyes closed, pink cheeks|**the wanted bunny**|same|
+|2|seated upright, paws together, eyes open|same|same|
+|3|standing on hind legs, winking, paw raised|same|same|
+|4|flat on belly, head down, eyes open|same|same|
+|5|rolled onto side/back, eyes closed, paws curled|same|same|
+
+**Consequence:** the tooling family is alive. The rabbit is one animal in a five-pose range that is still manufactured and still sold into the US. That reframes the whole problem from "find a dead SKU" to "ask a live seller of the sibling animal for the rabbit version".
+
+## Live five-pose cat set — verified today
+- **Alibaba `1600426959077`** — "5PCS Realistic Cat Figurines… Japanese Bell Cat", Zhongshan Aumeter Technology Co., Ltd. (Zhongshan, GD; 6 yrs; 5/5 from 94; 95.7% on-time dispatch; replies ≤5h). $3.50/set at 50–499, $2.80 at 500–2,999, $1.90 at ≥3,000. **Sample price $10.** Worked example: 50 sets = $175 + $44.57 shipping = $219.57 ($4.39/set), guaranteed delivery Dec 11 – Jan 21. Trade Assurance, Easy Return, money-back.
+- **AliExpress `1005009800270657`** — "5pcs Cat Ornament Mini Figurines… Micro Landscape Crafts", **500+ sold, 4.9★**, live.
+- **Ozon `5812313548`** — «украшения в машину /чёрные котята/ 5 шт.» = black colourway of the same five poses (RU delivery).
+- **Ozon `1342108765`** — «Статуя Мультяшный Кролик Пейзажный Орнамент», a *rabbit* listing. Yandex still serves its photo from Ozon's CDN (`ir.ozone.ru/s3/multimedia-p/6858968497.jpg`); the page 500s from the sandbox. Human check needed.
+
+## New method that worked: Alibaba Lens with an arbitrary image URL
+`https://www.alibaba.com/search/page?scene=detailMainImg&tab=all&SearchScene=imageTextSearch&imagePath=<url-encoded image URL>`
+- Accepts plain Amazon CDN URLs (no upload, no login). `?SearchText=` can refine.
+- **Bunny group photo** (`m.media-amazon.com/images/I/51p6b5keUSL.jpg`) ⇒ closest match so far: **"best sell Chunjun Landscape 15 Fat Cute Rabbit"**, product `1601246277750`, model no. `chenjun`, **$0.05–0.08 MOQ 100**, supplier **Star Group Co., Ltd.** (3 yrs, 4.9/5 from 159, main markets **US**, CZ, EG, LT, UK; reorder 21%), quoted delivery Feb 19. 13 named variants incl. "Number eight on your stomach" (趴), "Sleep on 6" (睡), "Number three sits and blinks", "Number four is sitting". Caveat: at 5–8¢ these are almost certainly 1–2 cm miniatures, and `chenjun` = the 陈军工艺 family previously eliminated *for a different mould*.
+- **Single-bunny photo** (`413PFxvpRsL.jpg`) ⇒ only squishy toys / coin banks. The **group photo is the better search image.**
+- Cat photo ⇒ returns its own Alibaba listing + adjacent cat sets (Stone Cat Figurine, cat-shaped candle moulds).
+- AliExpress gallery thumbs (`ae-pic-a1.aliexpress-media.com`) also accepted; `ae01.alicdn.com` returned "no results".
+
+## Other new/checked IDs
+- **`3256812139527911`** and **`3256811402737445`** — "5pc / 5Pcs/Set Cute Maid Rabbit Cat Mouse … Resin Craft", $1.09, live, low sales (4 and 3). Sold as rabbit **and** cat **and** mouse in one listing — the multi-animal-variant pattern that justifies asking cat sellers for rabbits. Likely "maid"-dressed sculpts, i.e. probably wrong.
+- **`3256811610731940`** — "5pcs MiNI Cute Kawaii Simulation Rabbit Resin Bunny Model", 49 sold, $1.09. Lens matched it to Yiwu Yaopo `1601595136068` at **$0.06–0.07 MOQ 50** ⇒ tiny cabochon-type bunnies, not the wanted set. Demoted.
+- Alibaba `1601728640753` (Yiwu Huadieyu, $0.03–0.08, 147 sold, reorder 19%) and `1601726735105` (Yiwu Baoyu, $0.04–0.11) — same tiny-miniature league.
+- `ozon.by 3384829227` «Набор мини-фигурок Милые кролики, 10 шт.» — Yandex matched the "5pcs simulation rabbit" thumb to it; unverified.
+
+## Tool reality this pass
+- Amazon product page ✅ · **Alibaba Lens by URL ✅ (new)** · Alibaba product page ✅ · Alibaba `trade/search` ❌ slider captcha · AliExpress item pages ❌ robot wall · AliExpress `/w/wholesale-*` search ✅ · Ozon ❌ HTTP 500 · Ozon product image URL referenced in Yandex ✅ (text only) · DHGate ✅ · Yandex "sites" ✅ · shell network ❌ · viewing any remote photo ❌ (no PIL either; `pip install pillow` blocked by PEP 668).
+- Whole judgement chain therefore rests on the user's two images + titles/price/variant-name metadata. No photo of any candidate was inspected by me.
+
+## Ranked next actions
+1. Chat Aumeter (`1600426959077`) with both photos; ask for the white-rabbit five-pose version; use the **$10 sample** if confirmed.
+2. One-line ask to the AliExpress cat seller (`1005009800270657`, 500+ sold).
+3. Eyeball the 陈军 "15 fat rabbit" set and the two maid-set listings — eyes only.
+4. Keep the Yiwu `LIT0320` thread (¥1, 40,140 in stock, 李红群 `13335959405`) and keep the repair option open.
