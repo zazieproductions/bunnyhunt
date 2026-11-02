@@ -245,3 +245,36 @@ Linked from `bunny-pass-4.html` §9 (and the footer).
 
 ## Standing conclusion (unchanged)
 No purchase route exists today. The mirror links are evidence and vocabulary, not shops. Live threads remain: Yiwugo 983810072 (`LIT0320`, ¥1, 40,140 in stock, 李红群 13335959405/WeChat), Yiwugo 971022812 / 971031644 / 965378567, 1688 shop `2214100418246` via agent, eBay/Mercari alerts for dead stock, and repair.
+
+---
+
+# Part 7 — 2 November 2026: the same URL a second time
+
+## What the user sent
+`https://horali.ru/infobox_881005001333292108.html` — **character-for-character identical** to the link already triaged in Part 5. Not a new find; a repeat.
+
+Re-checked rather than assumed: Wayback availability API, 2 Nov 2026 ⇒ **still no snapshot**. Page still served behind the Cloudflare interstitial. Nothing has changed about it, and nothing can — the underlying item `1005001333292108` is delisted from AliExpress's catalogue.
+
+## Mirror ledger (for the record)
+| Domain | Wrapper | Times user has sent it | Verdict |
+|---|---|---|---|
+| alirich.ru | `pid99…` | 1 (first message) | not a shop |
+| horali.ru | `infobox_88…` | **2** (Parts 5 and 7) | not a shop |
+| chinastock350.ru | `aid_8881500…` | 1 (Part 6) | not a shop |
+| lyvi.ru | `p-…` | 0 (found by me) | not a shop |
+All four decode to the single item ID `1005001333292108`.
+
+## Deliverable added — reusable, so a repeat costs nothing
+`link-checker.html`: a **local, offline** single-page tool. Paste a URL, get a verdict.
+- Extracts the 16-digit AliExpress item ID (`1005…` / `3256…`) from anywhere in the string, and separates the **wrapper digits** glued in front of it, e.g. `infobox_` + `88` + `1005001333292108`; `aid_` + `8881500` + id; `pid99…` → wrapper `99`.
+- Verdict ladder: known-mirror domain → scraper URL shape on an unknown domain → known-dead ID → known live-but-wrong ID → real marketplace → unknown.
+- Baked-in dead list: `1005001333292108`, `1005004884651516`, `1005005366540234`, `1005005596719787`. Baked-in wrong-but-live list: `3256806929897037` (JETTING realistic furries), `3256805410405035` (WELCOME-sign sleepy set).
+- Five-question checklist with a live tally ("you need all five before money moves").
+- No network calls, no dependencies, works from the file:// path.
+
+Logic verified in Node against 8 URLs (all four mirrors, a contrived unknown domain with the wrapper pattern, the JETTING item, Amazon ASIN, Yiwugo product, plus a random non-shop domain) — every branch returns the intended verdict. HTML parses clean.
+
+## Standing conclusion (unchanged, and now the point)
+Four domains, one dead ID. The mirrors are vocabulary and evidence, not shops. There is nothing left to learn from links of this shape, which is why the tool now answers them automatically.
+
+Live threads remain: Yiwugo **983810072** (`LIT0320`, 小兔 ¥1.00, 40,140 in stock, 李红群 `13335959405` / WeChat) · Yiwugo 971022812, 971031644, 965378567 · 1688 shop `2214100418246` via Superbuy/CSSBuy/Sugargoo · eBay & Mercari saved-search alerts · repair.

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bunny link checker — paste a link, get a verdict</title>
+<style>
+  :root {
+    --ink:#1b1b1f; --soft:#5c5c66; --line:#e2e0dd; --paper:#fbfaf8; --card:#fff;
+    --good:#1d6b45; --goodbg:#eaf5ee; --goodline:#bfe0cc;
+    --warn:#8a4b00; --warnbg:#fdf2e2; --warnline:#f0d5a8;
+    --bad:#8c1d1d; --badbg:#fdeceb; --badline:#f0c3c0;
+    --accent:#3a4a8a;
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; padding:32px 20px 64px; background:var(--paper); color:var(--ink);
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height:1.58; font-size:16.5px;
+  }
+  .wrap { max-width: 820px; margin:0 auto; }
+  h1 { font-size:1.6rem; line-height:1.2; margin:0 0 6px; letter-spacing:-0.015em; }
+  h2 { font-size:1.1rem; margin:34px 0 10px; padding-bottom:8px; border-bottom:2px solid var(--line); }
+  p { margin:0 0 12px; }
+  .sub { color:var(--soft); font-size:0.95rem; margin:0 0 22px; }
+  ul, ol { padding-left:22px; margin:0 0 14px; }
+  li { margin:0 0 7px; }
+  a { color:var(--accent); text-underline-offset:2px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; margin:0 0 18px; }
+  label.fld { display:block; font-size:0.74rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--soft); margin-bottom:6px; font-weight:700; }
+  input[type=url] {
+    width:100%; padding:12px 14px; font-size:1rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    border:1px solid #cfccc7; border-radius:10px; background:#fff; color:var(--ink);
+  }
+  input[type=url]:focus { outline:2px solid #c3cbe8; border-color:var(--accent); }
+  .row { display:flex; gap:10px; margin-top:10px; flex-wrap:wrap; }
+  button {
+    font: inherit; font-size:0.95rem; font-weight:600; padding:10px 18px; border-radius:10px;
+    border:1px solid var(--accent); background:var(--accent); color:#fff; cursor:pointer;
+  }
+  button.ghost { background:#fff; color:var(--accent); }
+  button:hover { filter:brightness(1.06); }
+  .verdict { border-radius:12px; padding:14px 16px; border:1px solid; margin:16px 0 0; display:none; }
+  .verdict.show { display:block; }
+  .v-bad { background:var(--badbg); border-color:var(--badline); }
+  .v-warn { background:var(--warnbg); border-color:var(--warnline); }
+  .v-good { background:var(--goodbg); border-color:var(--goodline); }
+  .verdict .head { font-weight:700; font-size:1.05rem; margin-bottom:6px; }
+  .v-bad .head { color:var(--bad); } .v-warn .head { color:var(--warn); } .v-good .head { color:var(--good); }
+  .facts { margin:10px 0 0; padding:0; list-style:none; font-size:0.92rem; }
+  .facts li { margin:0 0 5px; padding-left:16px; position:relative; }
+  .facts li::before { content:"·"; position:absolute; left:4px; font-weight:700; }
+  code { background:#efeeec; padding:1px 6px; border-radius:5px; font-size:0.9em; word-break:break-word; }
+  .chk { list-style:none; padding:0; margin:6px 0 0; }
+  .chk li { display:flex; gap:10px; align-items:flex-start; margin:0 0 9px; }
+  .chk input { margin-top:5px; flex:0 0 auto; width:17px; height:17px; }
+  .tally { font-size:0.9rem; color:var(--soft); margin-top:4px; }
+  table { width:100%; border-collapse:collapse; margin:12px 0 8px; font-size:0.92rem; }
+  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { background:#f3f1ee; font-size:0.76rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--soft); }
+  tr:last-child td { border-bottom:none; }
+  .url { word-break:break-all; font-size:0.85rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .foot { margin-top:40px; padding-top:14px; border-top:1px solid var(--line); font-size:0.85rem; color:var(--soft); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Paste a link — get a verdict</h1>
+  <p class="sub">A local page. Nothing is sent anywhere, nothing is fetched — it just reads the shape of the URL and the number inside it against everything already checked. Built 2 November 2026.</p>
+
+  <div class="card">
+    <label class="fld" for="u">The link you were sent</label>
+    <input type="url" id="u" placeholder="https://example.ru/infobox_881005001333292108.html" autocomplete="off" spellcheck="false">
+    <div class="row">
+      <button id="go">Check it</button>
+      <button class="ghost" id="ex">Try the last one sent</button>
+    </div>
+    <div class="verdict" id="v">
+      <div class="head" id="vh"></div>
+      <div id="vt"></div>
+      <ul class="facts" id="vf"></ul>
+    </div>
+  </div>
+
+  <h2>What it checks</h2>
+  <ul>
+    <li><b>Is there an AliExpress item ID in the URL?</b> It hunts for <code>100500…</code> / <code>3256…</code> anywhere in the string and reports it.</li>
+    <li><b>Is there a scraper prefix glued in front of it?</b> <code>88</code>, <code>pid99</code>, <code>aid_8881500</code>, <code>infobox_</code>, <code>p-</code>, <code>p-88</code>, <code>tovar-</code> and friends.</li>
+    <li><b>Is the domain a known mirror?</b> A standing list of the ones already seen, plus anything with a junk-prefix pattern.</li>
+    <li><b>Is that ID already dead?</b> A list of the item numbers already confirmed delisted — the big one being <code>1005001333292108</code>, which now resolves to a different product on AliExpress itself.</li>
+    <li><b>Is the domain a real marketplace?</b> Amazon, eBay, Etsy, Walmart, Temu, AliExpress item, Yiwugo, Ozon, Joom, Mercado Libre, and so on — those get a "worth a look" instead of a dismissal.</li>
+  </ul>
+  <p>It cannot know about a marketplace it has never heard of. If a link comes back <b>unknown</b>, that's not a green light — it means the URL shape told us nothing, and you fall back to the five questions below.</p>
+
+  <h2>The five questions, for anything the checker can't settle</h2>
+  <div class="card">
+    <ul class="chk" id="chk">
+      <li><input type="checkbox" id="c1"><label for="c1"><b>Can I put it in a cart</b> and see a checkout with my own address in it?</label></li>
+      <li><input type="checkbox" id="c2"><label for="c2">Is there a <b>named seller</b> I could message, with a store history?</label></li>
+      <li><input type="checkbox" id="c3"><label for="c3">Is there a <b>shipping price and an arrival date</b> — not "shipping calculated later"?</label></li>
+      <li><input type="checkbox" id="c4"><label for="c4">Is there a <b>return policy</b> and a real refund route if it's wrong?</label></li>
+      <li><input type="checkbox" id="c5"><label for="c5">Does the page show <b>a photo of the actual bunny</b> — legs splayed, eyes closed — not a stock group shot?</label></li>
+    </ul>
+    <div class="tally" id="tally">0 of 5 — you need all five before money moves.</div>
+  </div>
+  <p style="margin-top:10px">Anything under five is not a purchase option, however real the page looks. That test would have caught every mirror you've been sent so far: none of them has a cart.</p>
+
+  <h2>The mirrors, as of today</h2>
+  <table>
+    <tr><th>Site</th><th>Wrapper</th><th>Status</th></tr>
+    <tr><td>alirich.ru</td><td><code>pid99…</code></td><td>scraper · no shop · same dead ID</td></tr>
+    <tr><td>horali.ru</td><td><code>infobox_88…</code></td><td>scraper · footer admits it · same dead ID</td></tr>
+    <tr><td>chinastock350.ru</td><td><code>aid_8881500…</code></td><td>scraper · footer admits it · same dead ID</td></tr>
+    <tr><td>lyvi.ru</td><td><code>p-…</code></td><td>scraper · same dead ID</td></tr>
+    <tr><td>imall.com</td><td>product path</td><td>price mirror — useful for reading a listing's state, never for buying</td></tr>
+    <tr><td>chinastores.ru · yanidunya.org · sergi5.ru</td><td>—</td><td>same template neighbourhood; expect the same behaviour</td></tr>
+  </table>
+  <p>All of them are the <b>same product ID</b> rewritten into different wrapper formats. They are evidence the item existed and a source of search vocabulary. They are not shops.</p>
+
+  <div class="foot">
+    Reference: <code>bunny-search-terms.html</code> (vocabulary) · <code>bunny-pass-4.html</code> (what's actually live) · <code>link-checker.html</code> (this page) · <code>bunny-research-notes.md</code> (log, Parts 1–7).
+  </div>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---- known-dead AliExpress item IDs (confirmed delisted, not just out of stock)
+  var DEAD = {
+    "1005001333292108": "the original listing — AliExpress now resolves this ID to a different product, so every mirror of it is a photograph of a ghost",
+    "1005004884651516": "delisted — URL redirects to AliExpress's own 404",
+    "1005005366540234": "delisted — redirects to a dead page",
+    "1005005596719787": "resolved to 3256805410405035 — live, but a different set (WELCOME sign, clock, blue smock)"
+  };
+
+  // ---- live-but-wrong items that keep resurfacing
+  var WRONG = {
+    "3256806929897037": "LIVE and cheap and 5★ — but the photos are eight realistic furry rabbits, brand JETTING. Most convincing wrong answer on the internet.",
+    "3256805410405035": "the WELCOME-sign sleepy set — right mood, wrong sculpts"
+  };
+
+  var MIRROR_DOMAINS = [
+    "alirich.ru","horali.ru","chinastock350.ru","lyvi.ru","imall.com",
+    "chinastores.ru","yanidunya.org","sergi5.ru","aliexpress-mirror.ru"
+  ];
+
+  var MARKETPLACES = [
+    "amazon.com","amazon.co.uk","amazon.ca","amazon.de","amazon.es",
+    "ebay.com","etsy.com","walmart.com","temu.com","aliexpress.us","aliexpress.com",
+    "ozon.ru","wildberries.ru","joom.com","mercadolibre.com.mx","mercadolibre.com",
+    "yiwugo.com","1688.com","taobao.com","alibaba.com","dhgate.com","mercari.com",
+    "target.com","youla.ru","avito.ru","aliexpress.ru"
+  ];
+
+  var PREFIXES = [
+    /^infobox_?/i, /^aid_?/i, /^pid/i, /^p-?/i, /^tovar-?/i, /^item-?/i,
+    /^goods-?/i, /^product-?/i, /^i-?/i, /^88+/i, /^8881500/i, /^99+/
+  ];
+
+  var $ = function (id) { return document.getElementById(id); };
+  var input = $("u"), verdict = $("v"), vh = $("vh"), vt = $("vt"), vf = $("vf");
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c];
+    });
+  }
+
+  function hostOf(raw) {
+    try { return new URL(raw).hostname.replace(/^www\./, "").toLowerCase(); }
+    catch (e) { return ""; }
+  }
+
+  function findId(raw) {
+    // 1) an AliExpress item ID is 16 digits starting 1005… or 3256…
+    var core = raw.match(/(1005\d{12}|3256\d{12})/);
+    if (core) {
+      // 2) the wrapper is whatever digit-run immediately precedes it
+      var at = core.index, id = core[1], start = at;
+      while (start > 0 && /\d/.test(raw.charAt(start - 1))) start--;
+      var wrapper = raw.slice(start, at);
+      return { raw: (wrapper + id), core: id, wrapper: wrapper };
+    }
+    // 3) otherwise report the longest plain digit run (e.g. a 1688 / Yiwugo product number)
+    var runs = raw.match(/\d{5,}/g);
+    if (!runs) return null;
+    var best = runs.sort(function (a, b) { return b.length - a.length; })[0];
+    return { raw: best, core: best, wrapper: "" };
+  }
+
+  function render(kind, head, text, facts) {
+    verdict.className = "verdict show v-" + kind;
+    vh.textContent = head;
+    vt.innerHTML = text;
+    vf.innerHTML = "";
+    (facts || []).forEach(function (f) {
+      var li = document.createElement("li");
+      li.innerHTML = f;
+      vf.appendChild(li);
+    });
+    verdict.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  function check() {
+    var raw = input.value.trim();
+    if (!raw) { render("warn", "Nothing to check", "Paste a link into the box above.", []); return; }
+
+    var host = hostOf(raw);
+    var id = findId(raw);
+    var facts = [];
+    var isMirror = MIRROR_DOMAINS.indexOf(host) !== -1;
+
+    // prefix detection on the path's last segment
+    var path = "";
+    try { path = new URL(raw).pathname + new URL(raw).search; } catch (e) { path = raw; }
+    var seg = path.split("/").filter(Boolean).pop() || "";
+    var caughtPrefix = null;
+    if (id && id.wrapper) caughtPrefix = id.wrapper;
+
+    if (host) facts.push("Domain: <code>" + esc(host) + "</code>");
+    if (id) facts.push("Number found: <code>" + esc(id.raw) + "</code>" + (id.core !== id.raw ? " → core item ID <code>" + esc(id.core) + "</code>" : ""));
+    if (caughtPrefix) facts.push("Scraper wrapper in front of the ID: <code>" + esc(caughtPrefix) + "</code> — real shops don't build URLs like that");
+    if (!host) facts.push("That doesn't parse as a URL. Copy it again straight from the message.");
+
+    // 1. mirror domain
+    if (isMirror) {
+      facts.push("<b>" + esc(host) + " is on the known-mirror list.</b> These sites state in their own footers that they are not shops.");
+      if (id && DEAD[id.core]) facts.push("And the item is dead twice over: " + DEAD[id.core] + ".");
+      return render("bad", "Not a shop — do not order from this.", "This domain has already been checked: it is a Russian-language price scraper that re-hosts AliExpress listings. It has no cart, no seller, no stock and no shipping. Nothing on it can take your money or send a bunny.", facts);
+    }
+
+    // 2. unknown domain but obvious scraper URL shape
+    if (caughtPrefix) {
+      facts.push("Unknown domain, but the URL shape is the scraper pattern seen four times already (<code>alirich</code>, <code>horali</code>, <code>chinastock350</code>, <code>lyvi</code>).");
+      if (id && DEAD[id.core]) facts.push("The item ID is one already confirmed dead: " + DEAD[id.core] + ".");
+      return render("bad", "Almost certainly another mirror of the same dead item.", "The number in the URL is wrapped exactly the way the known scrapers wrap it. Open it if you want, but expect no cart and no seller — and do not enter payment or personal details.", facts);
+    }
+
+    // 3. known-dead ID on any domain
+    if (id && DEAD[id.core]) {
+      facts.push("Status of this item: " + DEAD[id.core] + ".");
+      return render("bad", "That item ID is dead.", "Whatever site is serving it, the underlying AliExpress listing has been delisted. Anything built on it is a copy of a page that no longer sells anything.", facts);
+    }
+
+    // 4. known wrong-but-live item
+    if (id && WRONG[id.core]) {
+      facts.push("Note: " + WRONG[id.core]);
+      return render("warn", "Live — and not your bunny.", "This one keeps coming up because the title matches. It is a different product. If you're thinking of buying it, look at the photos first.", facts);
+    }
+
+    // 5. real marketplace
+    if (MARKETPLACES.indexOf(host) !== -1) {
+      facts.push("This is a real marketplace with real checkout.");
+      facts.push("It still has to pass the five questions below — the Amazon listing is on a real marketplace and cannot be fulfilled.");
+      return render("good", "A real marketplace — worth opening.", "This domain has genuine checkout, so the question shifts from <i>is this a shop</i> to <i>is this the right bunny and will it actually ship</i>. Compare the photo to the reference before paying.", facts);
+    }
+
+    // 6. unknown
+    facts.push("Domain not in either list, and no wrapper pattern in the URL.");
+    return render("warn", "Unknown — check it with the five questions.", "The URL shape told us nothing either way. Open it and run the checklist below. If it has no cart, it is not a shop regardless of how complete the page looks.", facts);
+  }
+
+  // tally
+  var boxes = ["c1","c2","c3","c4","c5"].map($);
+  function tally() {
+    var n = boxes.filter(function (b) { return b.checked; }).length;
+    var el = $("tally");
+    if (n === 5) { el.textContent = "5 of 5 — this is as good as it gets. Compare the photo one last time, then buy two."; el.style.color = "var(--good)"; }
+    else if (n >= 3) { el.textContent = n + " of 5 — close, but the missing ones are exactly the ones that cause refunds. Don't pay yet."; el.style.color = "var(--warn)"; }
+    else { el.textContent = n + " of 5 — you need all five before money moves."; el.style.color = "var(--soft)"; }
+  }
+  boxes.forEach(function (b) { b.addEventListener("change", tally); });
+  tally();
+
+  $("go").addEventListener("click", check);
+  input.addEventListener("keydown", function (e) { if (e.key === "Enter") check(); });
+  $("ex").addEventListener("click", function () {
+    input.value = "https://horali.ru/infobox_881005001333292108.html";
+    check();
+  });
+})();
+</script>
+</body>
+</html>
