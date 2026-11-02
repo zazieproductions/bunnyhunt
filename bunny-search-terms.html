@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your bunny — the search terms that actually work</title>
+<style>
+  :root {
+    --ink:#1b1b1f; --soft:#5c5c66; --line:#e2e0dd; --paper:#fbfaf8;
+    --good:#1d6b45; --goodbg:#eaf5ee; --warn:#8a4b00; --warnbg:#fdf2e2;
+    --bad:#8c1d1d; --badbg:#fdeceb; --accent:#3a4a8a;
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; padding:32px 20px 64px; background:var(--paper); color:var(--ink);
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height:1.58; font-size:16.5px;
+  }
+  .wrap { max-width: 900px; margin:0 auto; }
+  h1 { font-size:1.72rem; line-height:1.2; margin:0 0 6px; letter-spacing:-0.015em; }
+  .sub { color:var(--soft); margin:0 0 24px; font-size:0.95rem; }
+  h2 { font-size:1.18rem; margin:38px 0 12px; padding-bottom:8px; border-bottom:2px solid var(--line); }
+  h3 { font-size:1.02rem; margin:22px 0 8px; }
+  p { margin:0 0 12px; }
+  ul, ol { margin:0 0 14px; padding-left:22px; }
+  li { margin:0 0 7px; }
+  a { color:var(--accent); text-underline-offset:2px; }
+  .hero { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px; }
+  .callout { border-radius:12px; padding:14px 16px; margin:16px 0; border:1px solid var(--line); background:#fff; }
+  .good { background:var(--goodbg); border-color:#bfe0cc; }
+  .warn { background:var(--warnbg); border-color:#f0d5a8; }
+  .bad  { background:var(--badbg);  border-color:#f0c3c0; }
+  .callout b:first-child { display:block; margin-bottom:4px; }
+  table { width:100%; border-collapse:collapse; margin:14px 0 8px; font-size:0.93rem; }
+  th, td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { background:#f3f1ee; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--soft); }
+  tr:last-child td { border-bottom:none; }
+  .tag { font-size:0.72rem; font-weight:700; letter-spacing:0.03em; text-transform:uppercase;
+         padding:3px 8px; border-radius:999px; white-space:nowrap; display:inline-block; }
+  .t-yes { background:var(--goodbg); color:var(--good); border:1px solid #bfe0cc; }
+  .t-may { background:var(--warnbg); color:var(--warn); border:1px solid #f0d5a8; }
+  .t-no  { background:var(--badbg);  color:var(--bad);  border:1px solid #f0c3c0; }
+  code { background:#efeeec; padding:1px 6px; border-radius:5px; font-size:0.9em; word-break:break-word; }
+  .term { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+          background:#fff; border:1px solid var(--line); border-radius:8px;
+          padding:8px 11px; margin:0 0 8px; font-size:0.92rem; word-break:break-word; }
+  .term .cn { font-family: "Songti SC", "Noto Serif CJK SC", serif; }
+  .lbl { display:block; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--soft); margin-bottom:3px; }
+  .url { word-break:break-all; font-size:0.86rem; }
+  blockquote { margin:10px 0; padding:12px 16px; background:#fff; border-left:4px solid var(--accent);
+               border-radius:0 10px 10px 0; font-size:0.95rem; }
+  .foot { margin-top:44px; padding-top:16px; border-top:1px solid var(--line); font-size:0.85rem; color:var(--soft); }
+  .cn-note { font-size:0.88rem; color:var(--soft); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>The search terms that actually work</h1>
+  <p class="sub">Built from every pass so far, checked <b>2 November 2026</b>. This is the vocabulary sheet — what string to paste where, what each one means, and which ones waste your evening. Companion to <code>bunny-pass-4.html</code>.</p>
+
+  <div class="hero">
+    <p style="margin:0 0 10px"><b>The one-line version.</b> The object has no brand, so no product name will ever find it. It is findable only by <b>describing its pose in Chinese trade language</b> or by <b>feeding its photo to a reverse-image engine</b>. Everything else — English titles, ASINs, part numbers, Russian mirror links — is a dead end that feels like progress.</p>
+    <p style="margin:0"><b>Best three strings, in order:</b><br>
+      1. <span class="cn">趴趴睡觉兔子</span> &nbsp;(Chinese, "sprawled-out sleeping rabbit") — the trade term for this pose<br>
+      2. <span class="cn">兔子摆件 微景观</span> &nbsp;(Chinese, "rabbit ornament, micro-landscape") — the category<br>
+      3. the photo itself, in Yandex image search — no words required</p>
+  </div>
+
+  <h2>1. Chinese — the only language where the mould exists</h2>
+  <p>These are the terms a Yiwu or 1688 seller actually uses. Use them in Taobao, 1688, Yiwugo, Chinagoods, Alibaba, or by sending them to a buying agent.</p>
+
+  <table>
+    <tr><th>Term</th><th>Meaning</th><th>Verdict</th></tr>
+    <tr>
+      <td><span class="term cn">趴趴睡觉兔子</span><span class="lbl">pā pā shuìjiào tùzi</span></td>
+      <td>"belly-down / sprawled-out sleeping rabbit" — the pose-specific trade phrase</td>
+      <td><span class="tag t-yes">best term found</span> This is the one that surfaced the live Yiwu shops with stock counts.</td>
+    </tr>
+    <tr>
+      <td><span class="term cn">兔子摆件 微景观</span><span class="lbl">tùzi bǎijiàn wēijǐngguān</span></td>
+      <td>"rabbit ornament · micro-landscape" — the category as listed</td>
+      <td><span class="tag t-yes">works</span> Widest net; returns the right genre of resin miniatures.</td>
+    </tr>
+    <tr>
+      <td><span class="term cn">睡觉兔子摆件</span><span class="lbl">shuìjiào tùzi bǎijiàn</span></td>
+      <td>"sleeping rabbit ornament"</td>
+      <td><span class="tag t-yes">works</span> Slightly noisier than 趴趴, same results underneath.</td>
+    </tr>
+    <tr>
+      <td><span class="term cn">车载兔子摆件</span><span class="lbl">chēzài tùzi bǎijiàn</span></td>
+      <td>"car-mounted rabbit ornament" — how it is sold in China (dashboard decor)</td>
+      <td><span class="tag t-yes">works</span> Your bunny's original sales channel.</td>
+    </tr>
+    <tr>
+      <td><span class="term cn">树脂兔子 摆件</span><span class="lbl">shùzhī tùzi bǎijiàn</span></td>
+      <td>"resin rabbit ornament"</td>
+      <td><span class="tag t-may">broad</span> Correct material, thousands of wrong moulds.</td>
+    </tr>
+    <tr>
+      <td><span class="term cn">眯眼小兔子</span><span class="lbl">mīyǎn xiǎo tùzi</span></td>
+      <td>"squinting / closed-eye little rabbit"</td>
+      <td><span class="tag t-may">useful</span> Describes the face; pairs well with 摆件.</td>
+    </tr>
+    <tr>
+      <td><span class="term cn">揣手小兔子</span><span class="lbl">chuāishǒu xiǎo tùzi</span></td>
+      <td>"paws-tucked little rabbit"</td>
+      <td><span class="tag t-may">useful</span> Only if variants with paws tucked show up alongside.</td>
+    </tr>
+    <tr>
+      <td><span class="term cn">兔子树脂摆件 DIY配件</span><span class="lbl">…DIY pèijiàn</span></td>
+      <td>"resin rabbit ornament, DIY parts" — how craft-supply sellers list them</td>
+      <td><span class="tag t-may">useful</span> Catches the cake-topper / fairy-garden channel, which is where the white #E was filed on Amazon.</td>
+    </tr>
+    <tr>
+      <td><span class="term cn">劈叉兔子</span><span class="lbl">pīchā tùzi</span></td>
+      <td>"splits rabbit" — my own literal guess at the splayed legs</td>
+      <td><span class="tag t-no">do not use</span> Not a real listing term. Returns nothing relevant. I tried it so you don't have to.</td>
+    </tr>
+    <tr>
+      <td><span class="term cn">兔子家族 萌兔</span><span class="lbl">tùzi jiāzú / méng tù</span></td>
+      <td>"rabbit family / cute rabbit" — the <i>other</i>, mass-market Yiwu line</td>
+      <td><span class="tag t-no">wrong product</span> This is the floppy-eared pink-bow family that everyone stocks. Your pose is not in it.</td>
+    </tr>
+  </table>
+
+  <h3>The five foreign words worth memorising anyway</h3>
+  <p>Pose words you can combine freely with <span class="cn">兔子 摆件</span> when a seller's search is too narrow:</p>
+  <ul>
+    <li><span class="cn">趴</span> <span class="cn-note">(pā)</span> — lying belly-down, sprawled ← <b>the key word</b></li>
+    <li><span class="cn">睡</span> <span class="cn-note">(shuì)</span> — asleep</li>
+    <li><span class="cn">闭眼</span> <span class="cn-note">(bì yǎn)</span> — eyes closed</li>
+    <li><span class="cn">坐</span> <span class="cn-note">(zuò)</span> — sitting</li>
+    <li><span class="cn">树脂</span> <span class="cn-note">(shùzhī)</span> — resin</li>
+  </ul>
+
+  <h2>2. English — only two strings have ever found it</h2>
+  <p>English titles are copy-pasted between unrelated products, so they are the weakest tool here. But two strings are worth keeping because they are the exact titles the surviving listings used — useful on eBay/Mercari saved searches and on AliExpress.</p>
+
+  <div class="term">Cute Rabbit Gift Box Small Decorative Resin Animal Micro Landscape Decoration Car Supplies Home Furnishings</div>
+  <div class="term">Mini Simulation Rabbit Figurine Bunny Car Desktop Ornament Micro Landscape Decoration Dollhouse Miniature Toy</div>
+  <div class="term">Car Dashboard Ornament, Cute Rabbit Desktop Ornaments Funny Miniature Bunny Figurine</div>
+
+  <div class="callout warn">
+    <b>Warning attached to the second one</b>
+    <p style="margin:8px 0 0">That exact string is <b>live right now</b> — AliExpress item <a href="https://www.aliexpress.us/item/3256806929897037.html">3256806929897037</a>, $1.09, 18 sold, 5★, free shipping. It is the single most convincing wrong answer on the internet: the photos are <b>eight realistic furry rabbits</b> in natural colours, brand JETTING. It will come up every time you search. It is not him.</p>
+  </div>
+
+  <p><b>Amazon-specific strings</b> (the listing is a ghost, but the vocabulary still identifies the item): <code>ihreesy rabbit dashboard ornament</code> · <code>Cute Rabbit Desktop Ornaments Funny Miniature Bunny Figurine</code> · MPN <code>BQTK37157</code> · variant phrase <code>White Rabbit #E</code>.</p>
+
+  <p><b>eBay / Mercari saved-search strings</b> — set these as alerts, since what you're hunting now is dead stock: <code>resin rabbit car ornament</code> · <code>bunny dashboard ornament</code> · <code>micro landscape rabbit figurine</code> · <code>sleeping bunny resin figurine</code>.</p>
+
+  <h2>3. Russian — where the mirrors live, and why the words don't help</h2>
+  <p>Every Russian link you've been sent so far is a translation of the AliExpress title, re-hosted by a scraper. The phrase that identifies it there:</p>
+  <div class="term">Подарочная коробка с милым Кроликом <span class="lbl">"gift box with a cute rabbit" — the literal RU translation of the ALIEXPRESS title</span></div>
+  <p>Searchable variants that appear on RU mirrors and marketplaces of this item:</p>
+  <ul>
+    <li><code>Статуя Мультяшный Кролик Пейзажный Орнамент</code> — "cartoon rabbit landscape ornament statue" (Ozon, dead)</li>
+    <li><code>Микропейзаж Мультфильм Милый Кролик</code> — "micro-landscape cartoon cute rabbit" (Joom, dead)</li>
+    <li><code>Спящая зайка с розовым бантиком</code> — "sleeping bunny with a pink bow" (Ozon <code>493654747</code>, dead, but this is the one Yandex still matches to the real factory photo)</li>
+    <li><code>фигурка кролик смола</code> · <code>зайка смола миниатюра</code> — generic "resin rabbit figurine"</li>
+  </ul>
+  <p><b>Honest assessment:</b> Russian terms have <b>zero</b> purchase value for you. Every RU listing of this item is dead, and the live ones were Belarus/Russia-delivery-only. They're useful for exactly one thing — recognising another mirror instantly, which §4 covers.</p>
+
+  <h2>4. The mirror decoder — that link you just sent, and the next nine</h2>
+  <p>You sent <a href="https://chinastock350.ru/aid_88815001005001333292108.html">chinastock350.ru/aid_88815001005001333292108.html</a>. Same answer as before, and now it's a pattern you can check yourself in five seconds:</p>
+
+  <table>
+    <tr><th>Mirror URL</th><th>Strip the wrapper</th><th>What's inside</th></tr>
+    <tr><td class="url">alirich.ru/<b>pid99</b>1005001333292108.html</td><td>remove <code>pid99</code></td><td rowspan="4"><code>1005001333292108</code><br><b>one listing</b><br>delisted from AliExpress's own catalogue — the ID now resolves to a different product</td></tr>
+    <tr><td class="url">horali.ru/<b>infobox_88</b>1005001333292108.html</td><td>remove <code>infobox_88</code></td></tr>
+    <tr><td class="url">chinastock350.ru/<b>aid_8881500</b>1005001333292108.html</td><td>remove <code>aid_8881500</code></td></tr>
+    <tr><td class="url">lyvi.ru/<b>p-</b>1005001333292108</td><td>remove <code>p-</code></td></tr>
+  </table>
+
+  <div class="callout bad">
+    <b>chinastock350.ru confirms it in its own footer</b>
+    <p style="margin:8px 0 0">«Сайт chinastock350.ru <b>НЕ является интернет-магазином</b>, данная витрина всего лишь содержит ссылки на официальный сайт Aliexpress» — "this site is <b>not an online shop</b>, this showcase merely contains links to the official AliExpress site." horali.ru and alirich.ru say the same thing in almost the same words. Four domains, one boilerplate, one dead product ID.</p>
+  </div>
+
+  <p><b>The pattern to recognise:</b> a <code>100500…</code> AliExpress ID with junk glued to the front (<code>88</code>, <code>pid99</code>, <code>aid_8881500</code>, <code>infobox_</code>, <code>p-</code>) is a scraper, every time. No seller, no cart, no stock. Images are re-hosted, prices are stale, reviews are generated filler dated December 2021. They are useful as <b>evidence the item once existed</b> and as <b>search-term clues</b> — which is genuinely how I've used the one you sent — and worthless as shops.</p>
+
+  <div class="callout good">
+    <b>The takeaway you were hoping for</b>
+    <p style="margin:8px 0 0">You were right to send it for the terms, and here's what it added: confirmation that the Russian title variant is <code>Подарочная коробка с милым Кроликом</code>, and confirmation that this whole mirror family is one template with rotated domains — so any future "found another exact match" from that shape can be dismissed without a search. The real terms are the Chinese pose words in §1.</p>
+  </div>
+
+  <h2>5. The search that beats every word: the photo</h2>
+  <p>No vocabulary will outperform image search, because the mould has no name. Feed a public URL to <b>Yandex reverse-image</b> (the only engine that has worked; Google Lens 500s, Bing silently degrades to text, TinEye is cookied out, Baidu and Sogou reject remote URLs).</p>
+  <ul>
+    <li>Amazon main photo: <code class="url">https://m.media-amazon.com/images/I/413PFxvpRsL.jpg</code></li>
+    <li>The five-pose factory gallery shot: <code class="url">https://m.media-amazon.com/images/I/51JQoyy98CL.jpg</code> ← <b>try this one specifically</b>; the group photo is shared by more sellers than the single-bunny shot</li>
+    <li>Cropped to just the bunny, if you can: the group photo's other four poses pull in unrelated matches</li>
+  </ul>
+  <p>Yandex on the single-bunny photo last returned only the dead Ozon listing and the deleted Alibaba product — which is itself the answer: nobody is currently indexing this item. Re-run it monthly; a relisting would appear here first.</p>
+
+  <h2>6. Copy-paste block</h2>
+  <p>For a buying agent, a WeChat message, or a 1688/Taobao search box:</p>
+  <blockquote>
+    <span class="cn">趴趴睡觉兔子 树脂摆件 微景观 车载</span><br>
+    <span class="cn">闭眼 坐姿 两腿分开 白色 红鼻子 红脸蛋 约5×5×6.5cm</span>
+  </blockquote>
+  <p class="cn-note">"Sprawled sleeping rabbit, resin ornament, micro-landscape, car use. Eyes closed, seated, back legs splayed to the sides, white, red nose, pink cheeks, approx. 5 × 5 × 6.5 cm."</p>
+
+  <div class="foot">
+    Where to use this sheet: the four Yiwugo product links and the WeChat number for 李红群 are in <code>bunny-pass-4.html</code> §3 · chronological log in <code>bunny-research-notes.md</code> · full channel status in <code>bunny-status-corrected.md</code>.
+  </div>
+
+</div>
+</body>
+</html>

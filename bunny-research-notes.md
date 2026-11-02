@@ -208,3 +208,40 @@ Also noted in search but irrelevant to the target: 60pc / 10–20pc "Cute Rabbit
 
 ## Standing conclusion
 Unchanged: no place currently sells this exact figurine with fulfilment that works. Open threads remain the Yiwugo shops (983810072 / LIT0320, 971022812, 971031644, 965378567), the WeChat enquiry to 李红群 `13335959405`, 1688 shop `2214100418246` via an agent, and repair.
+
+---
+
+# Part 6 — 2 November 2026: mirror #4, and the term sheet
+
+## What the user sent
+`https://chinastock350.ru/aid_88815001005001333292108.html`
+
+## Decode
+`aid_` + `8881500` + `1005001333292108`. Same dead AliExpress item as alirich (`pid99…`), horali (`infobox_88…`) and lyvi (`p-…`).
+
+## Confirmed by the site's own footer (via search-engine copy of the page)
+«Сайт chinastock350.ru НЕ является интернет-магазином, данная витрина всего лишь содержит ссылки на официальный сайт Aliexpress» — not a shop, only links to AliExpress. Same boilerplate family as horali.ru and alirich.ru. Site copy elsewhere: "Распродажа товаров на Алиэкспресс", catalogue of Chinese goods with rouble prices, reviews of seller ratings. `similars.net` groups it with chinastores.ru / yanidunya.org / sergi5.ru — same scraper neighbourhood (shared template, not proven shared owner).
+
+## Access this pass
+- `fetch_page` on the chinastock350 URL ⇒ Cloudflare "confirm you are a human" interstitial. Direct text-proxy (`r.jina.ai`) ⇒ failed to fetch.
+- Wayback availability API: **no snapshot** for that URL.
+- `web_search` for the raw numeric string and for `site:chinastock350.ru` ⇒ nothing indexed.
+- Consequence: I could not read the page's Russian title. The RU title variant already recorded from this family is «Подарочная коробка с милым Кроликом»; treat that as the family's RU naming, not as a verified string on this specific page.
+
+## New since Part 5
+- AliExpress search re-run on `miniature bunny figurine micro landscape ornament`. Confirms rejected item **`3256806929897037` is still live**: $1.09, 18 sold, 5★, free shipping, "Mini Simulation Rabbit Figurine Bunny Car Desktop Ornament Micro Landscape Decoration Dollhouse Miniature Toy" — still the JETTING eight realistic furry rabbits. Now the single most persistent wrong answer in this search.
+- New live candidates seen (still photo-unverified, wrong-family risk): `3256808185054720` (2pcs mini glass bunny, 103 sold, $3.82 — glass, wrong material), plus the 60pc / 10–20pc rabbit-family lots already rejected.
+
+## Deliverable added
+`bunny-search-terms.html` — "The search terms that actually work". Contents:
+- Chinese terms table with pinyin, literal meaning, and a verdict on each: `趴趴睡觉兔子` (best) · `兔子摆件 微景观` · `睡觉兔子摆件` · `车载兔子摆件` · `树脂兔子 摆件` · `眯眼小兔子` · `揣手小兔子` · `兔子树脂摆件 DIY配件`; plus the two anti-terms `劈叉兔子` (not real listing language) and `兔子家族 萌兔` (the wrong mass-market line).
+- Pose-word vocabulary: 趴 / 睡 / 闭眼 / 坐 / 树脂.
+- English: the three exact surviving titles, with a red flag on the JETTING one; Amazon identifiers `BQTK37157`, `White Rabbit #E`; eBay/Mercari alert strings.
+- Russian: «Подарочная коробка с милым Кроликом», «Статуя Мультяшный Кролик Пейзажный Орнамент», «Микропейзаж Мультфильм Милый Кролик», «Спящая зайка с розовым бантиком» — recorded for *recognition* only; explicitly zero purchase value.
+- Mirror-decoder table (alirich / horali / chinastock350 / lyvi → one ID) and the general rule for `100500…` IDs with junk prefixes.
+- Reverse-image block with the two Amazon image URLs to feed Yandex; recommends the five-pose group shot `51JQoyy98CL` over the single bunny, since more sellers reuse the group photo.
+- Copy-paste Chinese block for an agent or WeChat.
+Linked from `bunny-pass-4.html` §9 (and the footer).
+
+## Standing conclusion (unchanged)
+No purchase route exists today. The mirror links are evidence and vocabulary, not shops. Live threads remain: Yiwugo 983810072 (`LIT0320`, ¥1, 40,140 in stock, 李红群 13335959405/WeChat), Yiwugo 971022812 / 971031644 / 965378567, 1688 shop `2214100418246` via agent, eBay/Mercari alerts for dead stock, and repair.
