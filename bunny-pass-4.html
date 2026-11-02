@@ -235,6 +235,49 @@
     <p style="margin:8px 0 0">You still cannot buy him today, and I won't pretend otherwise. But the shape of the problem has changed in your favour: the Amazon listing is now <b>proven</b> to be a ghost rather than suspected, so you can stop burning evenings on it — and for the first time the <b>factory layer is open</b>, with named shops, stock counts and phone numbers in the right product family at fourteen cents a piece. What's left is not more searching. It's you looking at four photos.</p>
   </div>
 
+  <h2>8. The horali.ru link — same dead listing, third costume</h2>
+  <p>You sent <a href="https://horali.ru/infobox_881005001333292108.html">horali.ru/infobox_881005001333292108.html</a> as a new exact match. I checked it. <b>It isn't a shop, and it isn't new.</b> Here is the whole reason, in one line:</p>
+
+  <div class="callout bad">
+    <b>Read the number in the URL</b>
+    <p style="margin:8px 0 0"><code>881005001333292108</code> = <code>88</code> + <code>1005001333292108</code>.<br>
+    That second half is <b>item&nbsp;#3 in your very first message</b> — the AliExpress listing already marked <i>confirmed permanently discontinued</i> in §2.1. horali.ru is serving you the same page you've already been sent, one mirror further out.</p>
+  </div>
+
+  <h3>What the site actually is</h3>
+  <ul>
+    <li><b>It says so itself.</b> horali.ru's own footer: <i>"Данный сайт НЕ является интернет-магазином, а лишь содержит ссылки на официальный сайт продавцов"</i> — "this site is NOT an online shop, it only contains links to the sellers' official sites." It is a Russian-language price-tracker / listing scraper.</li>
+    <li><b>No cart, no seller, no stock, no shipping.</b> There is nothing on that page that can take money or send a bunny. The price it may show is scraped from AliExpress, where the item no longer exists.</li>
+    <li><b>It's the same family as the other link you sent.</b> <code>alirich.ru/pid991005001333292108.html</code> — same item number, same template, same fake review block. Two domains, one dead listing. There will be more of these; <code>lyvi.ru</code>, <code>imall.com</code> and <code>chinastock350.ru</code> are already on the pile.</li>
+    <li><b>The pages are auto-generated filler.</b> Open any random horali page and you'll find a title about children's winter coats above reviews of sandals, dated December 2021. That's a content farm indexing product IDs by the thousand, not a storefront.</li>
+  </ul>
+
+  <h3>New evidence today that the item is really dead</h3>
+  <p>A small but solid thing I could test this pass: loading <code>aliexpress.us/item/1005001333292108.html</code> no longer lands on your bunny — AliExpress bounces it to <code>3256801146977356</code>, a <i>different</i> product. When AliExpress stops resolving an ID to its own listing and starts substituting another item, the original is delisted at the database level, not just out of stock. That's why every mirror built on that ID is a photograph of a ghost.</p>
+
+  <h3>A ten-second test for every link you find from now on</h3>
+  <ol>
+    <li><b>Decode the number.</b> <code>88</code> or <code>pid99</code> or <code>infobox_</code> in front of a <code>100500…</code> AliExpress ID = mirror, no matter how shop-like the page looks.</li>
+    <li><b>Find the cart.</b> If you can't put it in a basket and see a checkout with your address in it, it is not a place you can buy from.</li>
+    <li><b>Find a named seller, a shipping price and a return policy.</b> A real listing has all three. A mirror has none.</li>
+    <li><b>Read the footer.</b> Almost all of these disclose what they are, in one sentence, at the bottom.</li>
+    <li><b>Look at the reviews' dates.</b> A wall of reviews from a single week in 2021 attached to a 2026 product page is generated filler.</li>
+  </ol>
+  <p>Anything that passes those five is worth sending me. Anything that fails them costs you nothing to drop.</p>
+
+  <h3>Two live AliExpress items in the right family — low confidence, cheap look</h3>
+  <p>While I had AliExpress search open I found two currently-selling cheap items from the <b>趴趴睡觉 (sprawled-asleep) animal series</b> that the Yiwu shops also carry. I could not view their photos this session, so I am <b>not</b> calling them your bunny — treat them as two 20-second looks, nothing more, and expect the wrong sculpt:</p>
+  <table>
+    <tr><th>Item</th><th>Price</th><th>Link</th></tr>
+    <tr><td>"Cute Little Animal Sleeping Ornament … Cartoon Panda Little Rabbit Desktop DIY Decor"</td><td>$3.20</td><td class="url"><a href="https://www.aliexpress.us/item/3256810551318378.html">3256810551318378</a></td></tr>
+    <tr><td>"Mini Cartoon Sleeping Animal Ornaments Car Dashboard …"</td><td>$1.34</td><td class="url"><a href="https://www.aliexpress.us/item/3256805782167638.html">3256805782167638</a></td></tr>
+  </table>
+
+  <div class="callout warn">
+    <b>And the thing that hasn't changed</b>
+    <p style="margin:8px 0 0">Amazon <code>B0CDZYFMHC</code> still reads $16.49, In Stock, Partong Store, delivery Nov 12–20. Same ghost. Nothing in this section moves the needle on that, and no link of this type ever will — the mirrors all inherit the death of the one AliExpress listing, so finding a tenth one tells you nothing new. The four Yiwugo links in §3 and the WeChat message in §3 are still the only things on this page that can end with a bunny in your hands.</p>
+  </div>
+
   <div class="foot">
     Companion files: <code>bunny-status-corrected.md</code> (Pass 3 status) · <code>find-my-bunny.html</code> (shopping card) · <code>who-makes-your-bunny.html</code> (factory hunt) · <code>bunny-research-notes.md</code> (running log, now including Part 4).
   </div>

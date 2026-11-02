@@ -164,3 +164,47 @@ Returns only: Ozon `493654747` («Спящая зайка с розовым ба
 2. A working **AliExpress item-page** reader — search is open, items are not.
 3. 1688 itself (login wall) — reachable only through an agent.
 4. True stock status behind Partong Store — needs a seller reply, not a scrape.
+
+---
+
+# Part 5 — 2 November 2026 (later same day): triage of a new mirror link
+
+## What the user sent
+`https://horali.ru/infobox_881005001333292108.html`
+
+## Decode
+`881005001333292108` = `88` + `1005001333292108` — i.e. **the same AliExpress item ID** already sent by the user in their first message (`alirich.ru/pid991005001333292108.html`) and already ruled permanently discontinued in §2.1 of `bunny-status-corrected.md`. Not a new listing; the same dead listing on a third mirror domain.
+
+## What horali.ru is
+- Russian-language **price tracker / listing scraper**, not a store. Its own footer: «Данный сайт НЕ является интернет-магазином, а лишь содержит ссылки на официальный сайт продавцов».
+- No cart, no seller identity, no stock, no shipping calculator. Nothing on the page can take payment.
+- Same template family as `alirich.ru` (which the user also sent): fake "reviews" block dated December 2021, page titles auto-pulled from unrelated products (e.g. a children's winter-coat title above sandal reviews). Content-farm signature.
+- Page readable only through a Cloudflare "confirm you are a human" interstitial this session (403 to a text proxy); the root domain and `horali.ru/chinaseller/Wedo+Life+Store` are likewise walled. No Wayback snapshot of the URL.
+- Search-engine-visible copy of the same template, for the record: https://horali.ru/ · https://horali.ru/chinaseller/IOPLKJ+Store
+
+## New hard evidence that item 1005001333292108 is dead
+Loading `https://www.aliexpress.us/item/1005001333292108.html` no longer resolves to the bunny — AliExpress redirects to item `3256801146977356`, a different product. ID-level substitution rather than an availability notice ⇒ delisted in the catalogue, not merely out of stock. Corollary: every mirror built on that ID (horali, alirich, lyvi, imall, chinastock350) is unaffected by any future "but this other site has it" find.
+
+## Tool reality this pass (unchanged from Part 4)
+- `fetch_page`: Amazon ✅ · AliExpress **search** (`/w/wholesale-<slug>.html`) ✅ · AliExpress **item** pages ❌ robot wall · horali/alirich ❌ Cloudflare · Wayback availability API ✅ (no snapshot).
+- Shell network ❌ (curl to `m.media-amazon.com` and `ae-pic-a1.aliexpress-media.com` fails at TLS). Remote photos still unviewable; `image_search` → read_file still works for local viewing.
+
+## Two live low-confidence candidates seen in AliExpress search
+Right *family* (趴趴睡觉 sprawled-asleep animals), cheap, selling, **photos not inspected** — not recommended, only eyeball-fodder:
+- `3256810551318378` — "Cute Little Animal Sleeping Ornament … Panda Little Rabbit Desktop DIY Decor", $3.20
+- `3256805782167638` — "Mini Cartoon Sleeping Animal Ornaments Car Dashboard", $1.34
+
+Also noted in search but irrelevant to the target: 60pc / 10–20pc "Cute Rabbit Family" resin lots (`3256808659091995`, `3256812669635759`), 7PCS miniature rabbit sets — all the wrong mould family, same as the Yiwu 兔子家族 sets already rejected.
+
+## Amazon re-check, same day
+`B0CDZYFMHC`: $16.49, **In Stock**, Partong Store (shipper = seller), free delivery Nov 12–20, returnable to Jan 31 2027. Unchanged ghost. No new offer.
+
+## Screening rule adopted (also in `bunny-pass-4.html` §8)
+1. `88…` / `pid99…` / `infobox_` prefixed `100500…` ID ⇒ mirror, not a shop.
+2. No working cart + checkout with the user's address ⇒ cannot buy there.
+3. No named seller + shipping price + return policy ⇒ not a real listing.
+4. Footer usually confesses ("НЕ является интернет-магазином").
+5. Reviews all dated in one 2021 week ⇒ generated filler.
+
+## Standing conclusion
+Unchanged: no place currently sells this exact figurine with fulfilment that works. Open threads remain the Yiwugo shops (983810072 / LIT0320, 971022812, 971031644, 965378567), the WeChat enquiry to 李红群 `13335959405`, 1688 shop `2214100418246` via an agent, and repair.
