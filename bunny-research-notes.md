@@ -164,3 +164,167 @@ Returns only: Ozon `493654747` («Спящая зайка с розовым ба
 2. A working **AliExpress item-page** reader — search is open, items are not.
 3. 1688 itself (login wall) — reachable only through an agent.
 4. True stock status behind Partong Store — needs a seller reply, not a scrape.
+
+---
+
+# Part 5 — 2 November 2026 (later same day): triage of a new mirror link
+
+## What the user sent
+`https://horali.ru/infobox_881005001333292108.html`
+
+## Decode
+`881005001333292108` = `88` + `1005001333292108` — i.e. **the same AliExpress item ID** already sent by the user in their first message (`alirich.ru/pid991005001333292108.html`) and already ruled permanently discontinued in §2.1 of `bunny-status-corrected.md`. Not a new listing; the same dead listing on a third mirror domain.
+
+## What horali.ru is
+- Russian-language **price tracker / listing scraper**, not a store. Its own footer: «Данный сайт НЕ является интернет-магазином, а лишь содержит ссылки на официальный сайт продавцов».
+- No cart, no seller identity, no stock, no shipping calculator. Nothing on the page can take payment.
+- Same template family as `alirich.ru` (which the user also sent): fake "reviews" block dated December 2021, page titles auto-pulled from unrelated products (e.g. a children's winter-coat title above sandal reviews). Content-farm signature.
+- Page readable only through a Cloudflare "confirm you are a human" interstitial this session (403 to a text proxy); the root domain and `horali.ru/chinaseller/Wedo+Life+Store` are likewise walled. No Wayback snapshot of the URL.
+- Search-engine-visible copy of the same template, for the record: https://horali.ru/ · https://horali.ru/chinaseller/IOPLKJ+Store
+
+## New hard evidence that item 1005001333292108 is dead
+Loading `https://www.aliexpress.us/item/1005001333292108.html` no longer resolves to the bunny — AliExpress redirects to item `3256801146977356`, a different product. ID-level substitution rather than an availability notice ⇒ delisted in the catalogue, not merely out of stock. Corollary: every mirror built on that ID (horali, alirich, lyvi, imall, chinastock350) is unaffected by any future "but this other site has it" find.
+
+## Tool reality this pass (unchanged from Part 4)
+- `fetch_page`: Amazon ✅ · AliExpress **search** (`/w/wholesale-<slug>.html`) ✅ · AliExpress **item** pages ❌ robot wall · horali/alirich ❌ Cloudflare · Wayback availability API ✅ (no snapshot).
+- Shell network ❌ (curl to `m.media-amazon.com` and `ae-pic-a1.aliexpress-media.com` fails at TLS). Remote photos still unviewable; `image_search` → read_file still works for local viewing.
+
+## Two live low-confidence candidates seen in AliExpress search
+Right *family* (趴趴睡觉 sprawled-asleep animals), cheap, selling, **photos not inspected** — not recommended, only eyeball-fodder:
+- `3256810551318378` — "Cute Little Animal Sleeping Ornament … Panda Little Rabbit Desktop DIY Decor", $3.20
+- `3256805782167638` — "Mini Cartoon Sleeping Animal Ornaments Car Dashboard", $1.34
+
+Also noted in search but irrelevant to the target: 60pc / 10–20pc "Cute Rabbit Family" resin lots (`3256808659091995`, `3256812669635759`), 7PCS miniature rabbit sets — all the wrong mould family, same as the Yiwu 兔子家族 sets already rejected.
+
+## Amazon re-check, same day
+`B0CDZYFMHC`: $16.49, **In Stock**, Partong Store (shipper = seller), free delivery Nov 12–20, returnable to Jan 31 2027. Unchanged ghost. No new offer.
+
+## Screening rule adopted (also in `bunny-pass-4.html` §8)
+1. `88…` / `pid99…` / `infobox_` prefixed `100500…` ID ⇒ mirror, not a shop.
+2. No working cart + checkout with the user's address ⇒ cannot buy there.
+3. No named seller + shipping price + return policy ⇒ not a real listing.
+4. Footer usually confesses ("НЕ является интернет-магазином").
+5. Reviews all dated in one 2021 week ⇒ generated filler.
+
+## Standing conclusion
+Unchanged: no place currently sells this exact figurine with fulfilment that works. Open threads remain the Yiwugo shops (983810072 / LIT0320, 971022812, 971031644, 965378567), the WeChat enquiry to 李红群 `13335959405`, 1688 shop `2214100418246` via an agent, and repair.
+
+---
+
+# Part 6 — 2 November 2026: mirror #4, and the term sheet
+
+## What the user sent
+`https://chinastock350.ru/aid_88815001005001333292108.html`
+
+## Decode
+`aid_` + `8881500` + `1005001333292108`. Same dead AliExpress item as alirich (`pid99…`), horali (`infobox_88…`) and lyvi (`p-…`).
+
+## Confirmed by the site's own footer (via search-engine copy of the page)
+«Сайт chinastock350.ru НЕ является интернет-магазином, данная витрина всего лишь содержит ссылки на официальный сайт Aliexpress» — not a shop, only links to AliExpress. Same boilerplate family as horali.ru and alirich.ru. Site copy elsewhere: "Распродажа товаров на Алиэкспресс", catalogue of Chinese goods with rouble prices, reviews of seller ratings. `similars.net` groups it with chinastores.ru / yanidunya.org / sergi5.ru — same scraper neighbourhood (shared template, not proven shared owner).
+
+## Access this pass
+- `fetch_page` on the chinastock350 URL ⇒ Cloudflare "confirm you are a human" interstitial. Direct text-proxy (`r.jina.ai`) ⇒ failed to fetch.
+- Wayback availability API: **no snapshot** for that URL.
+- `web_search` for the raw numeric string and for `site:chinastock350.ru` ⇒ nothing indexed.
+- Consequence: I could not read the page's Russian title. The RU title variant already recorded from this family is «Подарочная коробка с милым Кроликом»; treat that as the family's RU naming, not as a verified string on this specific page.
+
+## New since Part 5
+- AliExpress search re-run on `miniature bunny figurine micro landscape ornament`. Confirms rejected item **`3256806929897037` is still live**: $1.09, 18 sold, 5★, free shipping, "Mini Simulation Rabbit Figurine Bunny Car Desktop Ornament Micro Landscape Decoration Dollhouse Miniature Toy" — still the JETTING eight realistic furry rabbits. Now the single most persistent wrong answer in this search.
+- New live candidates seen (still photo-unverified, wrong-family risk): `3256808185054720` (2pcs mini glass bunny, 103 sold, $3.82 — glass, wrong material), plus the 60pc / 10–20pc rabbit-family lots already rejected.
+
+## Deliverable added
+`bunny-search-terms.html` — "The search terms that actually work". Contents:
+- Chinese terms table with pinyin, literal meaning, and a verdict on each: `趴趴睡觉兔子` (best) · `兔子摆件 微景观` · `睡觉兔子摆件` · `车载兔子摆件` · `树脂兔子 摆件` · `眯眼小兔子` · `揣手小兔子` · `兔子树脂摆件 DIY配件`; plus the two anti-terms `劈叉兔子` (not real listing language) and `兔子家族 萌兔` (the wrong mass-market line).
+- Pose-word vocabulary: 趴 / 睡 / 闭眼 / 坐 / 树脂.
+- English: the three exact surviving titles, with a red flag on the JETTING one; Amazon identifiers `BQTK37157`, `White Rabbit #E`; eBay/Mercari alert strings.
+- Russian: «Подарочная коробка с милым Кроликом», «Статуя Мультяшный Кролик Пейзажный Орнамент», «Микропейзаж Мультфильм Милый Кролик», «Спящая зайка с розовым бантиком» — recorded for *recognition* only; explicitly zero purchase value.
+- Mirror-decoder table (alirich / horali / chinastock350 / lyvi → one ID) and the general rule for `100500…` IDs with junk prefixes.
+- Reverse-image block with the two Amazon image URLs to feed Yandex; recommends the five-pose group shot `51JQoyy98CL` over the single bunny, since more sellers reuse the group photo.
+- Copy-paste Chinese block for an agent or WeChat.
+Linked from `bunny-pass-4.html` §9 (and the footer).
+
+## Standing conclusion (unchanged)
+No purchase route exists today. The mirror links are evidence and vocabulary, not shops. Live threads remain: Yiwugo 983810072 (`LIT0320`, ¥1, 40,140 in stock, 李红群 13335959405/WeChat), Yiwugo 971022812 / 971031644 / 965378567, 1688 shop `2214100418246` via agent, eBay/Mercari alerts for dead stock, and repair.
+
+---
+
+# Part 7 — 2 November 2026: the same URL a second time
+
+## What the user sent
+`https://horali.ru/infobox_881005001333292108.html` — **character-for-character identical** to the link already triaged in Part 5. Not a new find; a repeat.
+
+Re-checked rather than assumed: Wayback availability API, 2 Nov 2026 ⇒ **still no snapshot**. Page still served behind the Cloudflare interstitial. Nothing has changed about it, and nothing can — the underlying item `1005001333292108` is delisted from AliExpress's catalogue.
+
+## Mirror ledger (for the record)
+| Domain | Wrapper | Times user has sent it | Verdict |
+|---|---|---|---|
+| alirich.ru | `pid99…` | 1 (first message) | not a shop |
+| horali.ru | `infobox_88…` | **2** (Parts 5 and 7) | not a shop |
+| chinastock350.ru | `aid_8881500…` | 1 (Part 6) | not a shop |
+| lyvi.ru | `p-…` | 0 (found by me) | not a shop |
+All four decode to the single item ID `1005001333292108`.
+
+## Deliverable added — reusable, so a repeat costs nothing
+`link-checker.html`: a **local, offline** single-page tool. Paste a URL, get a verdict.
+- Extracts the 16-digit AliExpress item ID (`1005…` / `3256…`) from anywhere in the string, and separates the **wrapper digits** glued in front of it, e.g. `infobox_` + `88` + `1005001333292108`; `aid_` + `8881500` + id; `pid99…` → wrapper `99`.
+- Verdict ladder: known-mirror domain → scraper URL shape on an unknown domain → known-dead ID → known live-but-wrong ID → real marketplace → unknown.
+- Baked-in dead list: `1005001333292108`, `1005004884651516`, `1005005366540234`, `1005005596719787`. Baked-in wrong-but-live list: `3256806929897037` (JETTING realistic furries), `3256805410405035` (WELCOME-sign sleepy set).
+- Five-question checklist with a live tally ("you need all five before money moves").
+- No network calls, no dependencies, works from the file:// path.
+
+Logic verified in Node against 8 URLs (all four mirrors, a contrived unknown domain with the wrapper pattern, the JETTING item, Amazon ASIN, Yiwugo product, plus a random non-shop domain) — every branch returns the intended verdict. HTML parses clean.
+
+## Standing conclusion (unchanged, and now the point)
+Four domains, one dead ID. The mirrors are vocabulary and evidence, not shops. There is nothing left to learn from links of this shape, which is why the tool now answers them automatically.
+
+Live threads remain: Yiwugo **983810072** (`LIT0320`, 小兔 ¥1.00, 40,140 in stock, 李红群 `13335959405` / WeChat) · Yiwugo 971022812, 971031644, 965378567 · 1688 shop `2214100418246` via Superbuy/CSSBuy/Sugargoo · eBay & Mercari saved-search alerts · repair.
+
+---
+
+# Part 8 — 2 November 2026: the mould family, seen from the cat
+
+## The user's evidence (now the most important artifact in this project)
+Two photos supplied, both saved in the repo:
+- `reference-5pose-bunny-set.jpg` (Amazon CDN id `51p6b5keUSL`) — the five-pose **white rabbit** set. The wanted bunny is pose 1.
+- `reference-5pose-grey-cat-set.jpg` (Alibaba CDN `H8c5370c035f649818aefeb0d69f99783F`) — the five-pose **grey cat** set from product `1600426959077`.
+
+Pose-by-pose the two sets are the same sculptures:
+| # | pose | rabbit | cat |
+|---|---|---|---|
+|1|seated, back legs splayed sideways, eyes closed, pink cheeks|**the wanted bunny**|same|
+|2|seated upright, paws together, eyes open|same|same|
+|3|standing on hind legs, winking, paw raised|same|same|
+|4|flat on belly, head down, eyes open|same|same|
+|5|rolled onto side/back, eyes closed, paws curled|same|same|
+
+**Consequence:** the tooling family is alive. The rabbit is one animal in a five-pose range that is still manufactured and still sold into the US. That reframes the whole problem from "find a dead SKU" to "ask a live seller of the sibling animal for the rabbit version".
+
+## Live five-pose cat set — verified today
+- **Alibaba `1600426959077`** — "5PCS Realistic Cat Figurines… Japanese Bell Cat", Zhongshan Aumeter Technology Co., Ltd. (Zhongshan, GD; 6 yrs; 5/5 from 94; 95.7% on-time dispatch; replies ≤5h). $3.50/set at 50–499, $2.80 at 500–2,999, $1.90 at ≥3,000. **Sample price $10.** Worked example: 50 sets = $175 + $44.57 shipping = $219.57 ($4.39/set), guaranteed delivery Dec 11 – Jan 21. Trade Assurance, Easy Return, money-back.
+- **AliExpress `1005009800270657`** — "5pcs Cat Ornament Mini Figurines… Micro Landscape Crafts", **500+ sold, 4.9★**, live.
+- **Ozon `5812313548`** — «украшения в машину /чёрные котята/ 5 шт.» = black colourway of the same five poses (RU delivery).
+- **Ozon `1342108765`** — «Статуя Мультяшный Кролик Пейзажный Орнамент», a *rabbit* listing. Yandex still serves its photo from Ozon's CDN (`ir.ozone.ru/s3/multimedia-p/6858968497.jpg`); the page 500s from the sandbox. Human check needed.
+
+## New method that worked: Alibaba Lens with an arbitrary image URL
+`https://www.alibaba.com/search/page?scene=detailMainImg&tab=all&SearchScene=imageTextSearch&imagePath=<url-encoded image URL>`
+- Accepts plain Amazon CDN URLs (no upload, no login). `?SearchText=` can refine.
+- **Bunny group photo** (`m.media-amazon.com/images/I/51p6b5keUSL.jpg`) ⇒ closest match so far: **"best sell Chunjun Landscape 15 Fat Cute Rabbit"**, product `1601246277750`, model no. `chenjun`, **$0.05–0.08 MOQ 100**, supplier **Star Group Co., Ltd.** (3 yrs, 4.9/5 from 159, main markets **US**, CZ, EG, LT, UK; reorder 21%), quoted delivery Feb 19. 13 named variants incl. "Number eight on your stomach" (趴), "Sleep on 6" (睡), "Number three sits and blinks", "Number four is sitting". Caveat: at 5–8¢ these are almost certainly 1–2 cm miniatures, and `chenjun` = the 陈军工艺 family previously eliminated *for a different mould*.
+- **Single-bunny photo** (`413PFxvpRsL.jpg`) ⇒ only squishy toys / coin banks. The **group photo is the better search image.**
+- Cat photo ⇒ returns its own Alibaba listing + adjacent cat sets (Stone Cat Figurine, cat-shaped candle moulds).
+- AliExpress gallery thumbs (`ae-pic-a1.aliexpress-media.com`) also accepted; `ae01.alicdn.com` returned "no results".
+
+## Other new/checked IDs
+- **`3256812139527911`** and **`3256811402737445`** — "5pc / 5Pcs/Set Cute Maid Rabbit Cat Mouse … Resin Craft", $1.09, live, low sales (4 and 3). Sold as rabbit **and** cat **and** mouse in one listing — the multi-animal-variant pattern that justifies asking cat sellers for rabbits. Likely "maid"-dressed sculpts, i.e. probably wrong.
+- **`3256811610731940`** — "5pcs MiNI Cute Kawaii Simulation Rabbit Resin Bunny Model", 49 sold, $1.09. Lens matched it to Yiwu Yaopo `1601595136068` at **$0.06–0.07 MOQ 50** ⇒ tiny cabochon-type bunnies, not the wanted set. Demoted.
+- Alibaba `1601728640753` (Yiwu Huadieyu, $0.03–0.08, 147 sold, reorder 19%) and `1601726735105` (Yiwu Baoyu, $0.04–0.11) — same tiny-miniature league.
+- `ozon.by 3384829227` «Набор мини-фигурок Милые кролики, 10 шт.» — Yandex matched the "5pcs simulation rabbit" thumb to it; unverified.
+
+## Tool reality this pass
+- Amazon product page ✅ · **Alibaba Lens by URL ✅ (new)** · Alibaba product page ✅ · Alibaba `trade/search` ❌ slider captcha · AliExpress item pages ❌ robot wall · AliExpress `/w/wholesale-*` search ✅ · Ozon ❌ HTTP 500 · Ozon product image URL referenced in Yandex ✅ (text only) · DHGate ✅ · Yandex "sites" ✅ · shell network ❌ · viewing any remote photo ❌ (no PIL either; `pip install pillow` blocked by PEP 668).
+- Whole judgement chain therefore rests on the user's two images + titles/price/variant-name metadata. No photo of any candidate was inspected by me.
+
+## Ranked next actions
+1. Chat Aumeter (`1600426959077`) with both photos; ask for the white-rabbit five-pose version; use the **$10 sample** if confirmed.
+2. One-line ask to the AliExpress cat seller (`1005009800270657`, 500+ sold).
+3. Eyeball the 陈军 "15 fat rabbit" set and the two maid-set listings — eyes only.
+4. Keep the Yiwu `LIT0320` thread (¥1, 40,140 in stock, 李红群 `13335959405`) and keep the repair option open.
