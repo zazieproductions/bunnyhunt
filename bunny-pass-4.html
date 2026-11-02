@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pass 4 — your bunny, checked 2 November 2026</title>
+<style>
+  :root {
+    --ink:#1b1b1f; --soft:#5c5c66; --line:#e2e0dd; --paper:#fbfaf8;
+    --good:#1d6b45; --goodbg:#eaf5ee; --warn:#8a4b00; --warnbg:#fdf2e2;
+    --bad:#8c1d1d; --badbg:#fdeceb; --accent:#3a4a8a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin:0; padding:32px 20px 64px; background:var(--paper); color:var(--ink);
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height:1.58; font-size:16.5px;
+  }
+  .wrap { max-width: 880px; margin:0 auto; }
+  h1 { font-size:1.72rem; line-height:1.2; margin:0 0 6px; letter-spacing:-0.015em; }
+  .sub { color:var(--soft); margin:0 0 26px; font-size:0.95rem; }
+  h2 { font-size:1.18rem; margin:38px 0 12px; padding-bottom:8px; border-bottom:2px solid var(--line); }
+  h3 { font-size:1.02rem; margin:22px 0 8px; }
+  p { margin:0 0 12px; }
+  ul, ol { margin:0 0 14px; padding-left:22px; }
+  li { margin:0 0 7px; }
+  a { color:var(--accent); text-underline-offset:2px; }
+  .hero { display:flex; gap:22px; flex-wrap:wrap; align-items:flex-start;
+          background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px; }
+  .hero .pic { flex:0 0 220px; }
+  .hero .txt { flex:1 1 320px; min-width:250px; }
+  img.ref { width:100%; height:auto; border-radius:10px; display:block; background:#fff; }
+  .caption { font-size:0.82rem; color:var(--soft); margin-top:6px; }
+  .callout { border-radius:12px; padding:14px 16px; margin:16px 0; border:1px solid; }
+  .good { background:var(--goodbg); border-color:#bfe0cc; }
+  .warn { background:var(--warnbg); border-color:#f0d5a8; }
+  .bad  { background:var(--badbg);  border-color:#f0c3c0; }
+  .callout b { display:block; margin-bottom:4px; }
+  table { width:100%; border-collapse:collapse; margin:14px 0 8px; font-size:0.93rem; }
+  th, td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { background:#f3f1ee; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--soft); }
+  tr:last-child td { border-bottom:none; }
+  .tag { font-size:0.74rem; font-weight:700; letter-spacing:0.03em; text-transform:uppercase;
+         padding:3px 8px; border-radius:999px; white-space:nowrap; display:inline-block; }
+  .t-open { background:var(--goodbg); color:var(--good); border:1px solid #bfe0cc; }
+  .t-dead { background:#efeeec; color:#5c5c66; border:1px solid #dcdad7; }
+  .t-trap { background:var(--badbg); color:var(--bad); border:1px solid #f0c3c0; }
+  .t-new  { background:var(--warnbg); color:var(--warn); border:1px solid #f0d5a8; }
+  code { background:#efeeec; padding:1px 6px; border-radius:5px; font-size:0.88em; word-break:break-word; }
+  .url { word-break:break-all; font-size:0.86rem; }
+  blockquote { margin:14px 0; padding:12px 16px; background:#fff; border-left:4px solid var(--accent);
+               border-radius:0 10px 10px 0; font-size:0.95rem; }
+  .steps { counter-reset:s; list-style:none; padding-left:0; }
+  .steps > li { counter-increment:s; position:relative; padding-left:38px; margin-bottom:16px; }
+  .steps > li::before {
+    content:counter(s); position:absolute; left:0; top:1px; width:26px; height:26px; border-radius:50%;
+    background:var(--accent); color:#fff; font-size:0.85rem; font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .foot { margin-top:44px; padding-top:16px; border-top:1px solid var(--line); font-size:0.85rem; color:var(--soft); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Pass 4 — your bunny, checked again</h1>
+  <p class="sub">Everything here was opened and read on <b>2 November 2026</b>. This continues <code>bunny-status-corrected.md</code>. Where this pass changes something I told you before, it says so plainly.</p>
+
+  <div class="hero">
+    <div class="pic">
+      <img class="ref" src="reference.jpg" alt="Reference photo of your bunny">
+      <div class="caption">The one. Seated, legs splayed, eyes closed.</div>
+    </div>
+    <div class="txt">
+      <h3 style="margin-top:0">The short version</h3>
+      <ul style="margin-bottom:0">
+        <li><b>Still nowhere to buy the exact one.</b> Nothing came back in stock since yesterday.</li>
+        <li><b>I can now prove the Amazon listing can't be fulfilled.</b> One seller, zero backups, effectively zero sales. Re-ordering it is not bad luck — it's the design.</li>
+        <li><b>I got through to the Chinese factory side for the first time.</b> Two live Yiwu suppliers of the same <i>sprawled-asleep resin animals</i> line, one of them a real factory with 40,000+ of its rabbit variant in stock at ¥1 each. They need your eyes, not mine.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>1. What I checked today, and what happened</h2>
+  <table>
+    <tr><th>Where</th><th>Result today</th><th></th></tr>
+    <tr>
+      <td>Amazon US — <code>B0CDZYFMHC</code></td>
+      <td>$16.49, says <b>In stock</b>, delivery Nov 12–20, returns to Jan 31 2027. Unchanged, and still the only listing of the item anywhere.</td>
+      <td><span class="tag t-trap">trap</span></td>
+    </tr>
+    <tr>
+      <td>eBay</td>
+      <td><b>0 results</b> for <i>resin rabbit dashboard ornament white sleeping</i>, Buy-It-Now. Not "unrelated hits" — literally zero. No dead stock there today.</td>
+      <td><span class="tag t-dead">empty</span></td>
+    </tr>
+    <tr>
+      <td>AliExpress — <b>search</b> pages</td>
+      <td>Now readable by me (this was the wall in every earlier pass). Closest live items are the panda-and-bunny sunglasses set, knitted charms, and metal/silver rabbits — all wrong sculpt.</td>
+      <td><span class="tag t-new">new access</span></td>
+    </tr>
+    <tr>
+      <td>AliExpress — <b>item</b> pages</td>
+      <td>Still "We need to check if you are a robot." Search works, item pages don't.</td>
+      <td><span class="tag t-dead">blocked</span></td>
+    </tr>
+    <tr>
+      <td>Temu</td>
+      <td>Slide-puzzle verification wall. Could not read the goods page.</td>
+      <td><span class="tag t-dead">blocked</span></td>
+    </tr>
+    <tr>
+      <td>Ozon (RU) — <code>493654747</code></td>
+      <td>The listing Yandex still matches to your exact factory photo. Server refused (HTTP 500) today. Was already dead in Pass 3.</td>
+      <td><span class="tag t-dead">dead</span></td>
+    </tr>
+    <tr>
+      <td>Yandex reverse-image</td>
+      <td>Ran on the live Amazon photo. Returned only things already known: the Ozon listing and the deleted Alibaba <code>1600990901052</code>. No new sellers.</td>
+      <td><span class="tag t-dead">no change</span></td>
+    </tr>
+    <tr>
+      <td>Yiwugo (义乌购) — Yiwu factory marketplace</td>
+      <td><b>Works.</b> Live products, prices, stock counts, stall numbers and phone numbers. This is the new material in §3.</td>
+      <td><span class="tag t-open">open</span></td>
+    </tr>
+  </table>
+
+  <h2>2. Why the Amazon orders keep getting refunded</h2>
+  <p>I opened the all-offers panel and the seller's own pages today. Three facts together explain everything:</p>
+  <table>
+    <tr><th>Fact</th><th>What it means</th></tr>
+    <tr>
+      <td><b>One seller only.</b> Shipper and seller are both <i>Partong Store</i> (ID <code>AT2IQ293SRQ0N</code>). The other-sellers panel ends with the single word <i>"End of results"</i>. There is no backup offer for you to switch to.</td>
+      <td>The one piece of advice from the last report — "click Other sellers" — is now closed. There is nothing behind that door. I'm telling you so you stop spending evenings on it.</td>
+    </tr>
+    <tr>
+      <td><b>Seller health is poor.</b> 4.5 ★ from 216 ratings, but only <b>82% positive in the last 12 months</b>.</td>
+      <td>For a dropshipper, that's the profile of a store that oversells what it can't get and refunds when it can't ship.</td>
+    </tr>
+    <tr>
+      <td><b>Sales rank #4,291,820 in Automotive</b>, #6,250 in Interior Mirrors.</td>
+      <td>Things that are actually selling are not ranked four million. Nobody has received this bunny from this listing in a very long time.</td>
+    </tr>
+  </table>
+  <div class="callout bad">
+    <b>The conclusion I'd stake the search on</b>
+    The listing is a <b>ghost</b>: the page and the price are real, the shelf behind it is empty. Amazon's checkout can't see that, so it always accepts your order and then the seller quietly refunds when the supplier says no. That is why it "says in stock" every single time. It is not you, and it is not a stock cycle you can get lucky with.
+  </div>
+  <p>One more thing I found while checking: the same seller runs a <b>sibling listing</b> with almost identical wording — <code>B0CDZZRHXC</code>, "ihreesy Rabbit Miniature Figurines … Resin Crafts Statues, <b>Pink</b>", $15.09, also "In Stock", also Partong Store. It sits in a different Amazon category (Non-Edible Cake Toppers rather than Automotive). So this seller has a whole cluster of <i>ihreesy</i> rabbit SKUs across categories and keeps them all live. That's useful context, but it is <b>not</b> your white one and I'd not spend money on it hoping for a substitute.</p>
+
+  <h2>3. The new lead: the Chinese factory side</h2>
+  <p>Until today the trace stopped at resellers. Yiwugo — the official marketplace of the Yiwu wholesale market — renders for me, and it lists suppliers by <b>stall, product code, price, stock count and mobile number</b>. Searching the pose terms from the last report (<code>趴趴睡觉</code> = sprawled asleep) finally landed in the right product family.</p>
+
+  <div class="callout warn">
+    <b>Read this before you click anything</b>
+    I could not display their product photos in this session (see §5), so <b>I cannot swear these are your exact sculpt.</b> What I can tell you is that they are live, in stock, in the right genre, at the right factory price, from shops that make this class of object. You will know in one second whether the photo is him — you know his face better than any search engine does.
+  </div>
+
+  <h3>栎町工艺 — Liding Crafts (义乌市栎町工艺品有限公司)</h3>
+  <p>The strongest of the three, because they describe themselves as an <b>own-design, own-production, own-sales factory</b> rather than a trading stall — "自主设计，生产，销售一体". If anyone still holds your mould, it is a shop shaped like this one.</p>
+  <table>
+    <tr><th>Field</th><th>Detail</th></tr>
+    <tr><td>Product</td><td>微景观可爱趴趴睡觉猫狗猪兔子动物公仔装饰品配件桌面车载小摆件<br><span style="color:var(--soft);font-size:0.9em">"Micro-landscape cute sprawled-asleep cat / dog / pig / rabbit figures — desktop &amp; car ornaments"</span></td></tr>
+    <tr><td>Their item code</td><td><code>LIT0320</code> — worth quoting to them</td></tr>
+    <tr><td>The rabbit variant</td><td><b>小兔 — ¥1.00 each, stock 40,140</b>, minimum 3 pieces, free shipping inside China</td></tr>
+    <tr><td>Material</td><td>Resin, cartoon style, PP bag each, "no patent source"</td></tr>
+    <tr><td>Stall</td><td>义乌国际商贸城 一区东 6门 1楼 4街 101180B (Yiwu Int'l Trade City, District 1 East)</td></tr>
+    <tr><td>Contact</td><td><b>李红群 (Li Hongqun) — 13335959405</b>, same number on WeChat. Their shop note says to order by WeChat.</td></tr>
+    <tr><td>Pages</td><td class="url"><a href="https://www.yiwugo.com/product/detail/983810072.html">yiwugo.com/product/detail/983810072.html</a><br><a href="https://www.yiwugo.com/hu/101180B01.html">yiwugo.com/hu/101180B01.html</a> (whole shop)</td></tr>
+    <tr><td>Also sells on 1688</td><td>1688 shop <code>2214100418246</code> — their Yiwugo page links out to 1688 offers, e.g. <code>730204153172</code>, <code>788160165033</code>, <code>744977591818</code>. 1688 is the one a buying agent can actually purchase from.</td></tr>
+  </table>
+  <p><b>Important correction to the last report:</b> 栎町 was eliminated there because its "兔子家族萌兔" rabbit-family set was the wrong mould. That verdict still stands <i>for that set</i> — but this <code>LIT0320</code> sprawled-animals line is a <b>different product that was never examined</b>. Don't let the old strike-through cover this one.</p>
+
+  <h3>义乌永辉供应 — Yiwu Yonghui Supply (6 years)</h3>
+  <p>Carries the same sprawled-asleep series at a small markup, plus a car-interior rabbit set:</p>
+  <ul>
+    <li>Same <code>趴趴睡觉</code> animals — <b>¥1.32–1.56</b>, 3-piece minimum — <a href="https://www.yiwugo.com/product/detail/971022812.html">product 971022812</a></li>
+    <li>车内饰品摆件车载中控台装饰品可爱兔子 — car interior / centre-console rabbit decor, <b>¥0.96–8.64 for a set</b>, 1 set minimum — <a href="https://www.yiwugo.com/product/detail/971031644.html">product 971031644</a></li>
+    <li>Tulip-rabbit dashboard-screen ornament — <a href="https://www.yiwugo.com/product/detail/971040542.html">product 971040542</a></li>
+  </ul>
+
+  <h3>海淘优选日用百货 — cheapest micro-landscape rabbit</h3>
+  <p>微景观摆件卡通可爱小兔子树脂公仔 — <b>¥0.70–1.46</b>, 2-piece minimum — <a href="https://www.yiwugo.com/product/detail/965378567.html">product 965378567</a>. Same genre, lowest price, longest shot.</p>
+
+  <h3>How you'd actually buy from Yiwu, from Asheville</h3>
+  <p>Yiwugo is a domestic Chinese B2B site; it wants a Chinese account and Chinese payment. The practical route is the same one the last report named, now with a <i>specific shop</i> to point at:</p>
+  <ol>
+    <li>Open the four product links above on your phone. If one is him, you've found the source.</li>
+    <li>Message the shop on <b>WeChat</b> (<code>13335959405</code>) with the photo and the questions below — in Chinese, pasted from here.</li>
+    <li>If they'll sell retail, ask them to post 2–3 pieces to your agent's warehouse in China (Superbuy, CSSBuy or Sugargoo all give you a Chinese address), then ship to you.</li>
+    <li>If they won't, give your agent the <b>1688 shop ID <code>2214100418246</code></b> and the item code <code>LIT0320</code> and let them buy it for you.</li>
+  </ol>
+  <p>At ¥1.00–1.56 each, two or three of them plus agent fees and shipping is realistically <b>$15–30 all in</b> — cheaper than one Amazon order, and it's the price where "buy two" stops being a luxury.</p>
+
+  <div class="callout good">
+    <b>The message to send (copy-paste)</b>
+    <p style="margin:8px 0 4px"><b>Chinese</b></p>
+    <blockquote style="margin:0 0 12px">老板您好，我在找一款兔子树脂摆件，坐着、两腿分开、闭着眼睛、红鼻子红脸蛋，大概 5×5×6.5cm。请问您有这个款式吗？可以只买 2–3 个吗？可以寄到中国的集运仓吗？麻烦发一下实物照片，谢谢！</blockquote>
+    <p style="margin:0 0 4px"><b>English, if you'd rather</b></p>
+    <blockquote style="margin:0">Hello — I'm looking for one specific resin rabbit: sitting, back legs splayed out to the sides, eyes closed, red nose, pink cheeks, about 5 × 5 × 6.5 cm, white and glossy. Do you make or stock this exact pose? Can I buy just 2–3 pieces? Can you post them to a consolidation warehouse in China? A real photo of the item would help me confirm. Thank you.</blockquote>
+  </div>
+
+  <h2>4. Corrections to the last report</h2>
+  <table>
+    <tr><th>What I said before</th><th>What's true now</th></tr>
+    <tr><td>"Click Other sellers / New &amp; Used from…" — the seller who cancels you isn't always the only one.</td><td><b>Closed.</b> There are no other sellers. Partong Store is the only offer; the panel says "End of results".</td></tr>
+    <tr><td>eBay: "only unrelated, larger, vintage-style sleeping bunnies."</td><td>Today the same search returns <b>0 results</b>. There's no dead stock sitting there.</td></tr>
+    <tr><td>AliExpress is bot-walled, use the imall.com mirror to read listings.</td><td><b>Half wrong now.</b> AliExpress <i>search</i> pages render fine; <i>item</i> pages are still captcha-walled. The mirror is no longer the only way in.</td></tr>
+    <tr><td>栎町工艺 — eliminated as a factory candidate.</td><td>Eliminated for its "兔子家族萌兔" set only. Its <code>LIT0320</code> sprawled-animals line is a separate product and is now my best live lead.</td></tr>
+    <tr><td>The bottleneck is finding the factory.</td><td>Partly resolved: the factory layer is now visible and contactable. The remaining bottleneck is <b>confirming the sculpt</b>, which needs human eyes.</td></tr>
+  </table>
+
+  <h2>5. What I could not do in this session — plainly</h2>
+  <p>So you know exactly how much to trust each line above:</p>
+  <ul>
+    <li><b>I could not view a single remote product photo.</b> Image URLs don't render for me here, and there's no way to download them. In earlier passes I compared photographs one by one; today I could not. Every "wrong sculpt" judgement today is based on titles, categories and listing text, not on looking.</li>
+    <li><b>AliExpress item pages, Temu and Ozon were all closed to me.</b> Search pages and Yiwu were open.</li>
+    <li><b>I did not find a single live listing of the exact figurine.</b> Not one. That's the honest headline.</li>
+  </ul>
+  <p>The upside of being straight about this: the one thing that <i>is</i> new and solid is the factory layer, and that doesn't depend on my eyes — it depends on yours, for about thirty seconds, on four links.</p>
+
+  <h2>6. What I'd do next, in order</h2>
+  <ol class="steps">
+    <li><b>Open the four Yiwugo links.</b> If one photograph is him, you've gone from "discontinued everywhere" to "sitting in a warehouse in Yiwu at ¥1". This is the single highest-value thirty seconds in the whole search.</li>
+    <li><b>Send the Chinese message above to 李红群 on WeChat</b> (<code>13335959405</code>), or have an agent ask 1688 shop <code>2214100418246</code> for item <code>LIT0320</code>. Ask for 2–3 pieces, not one.</li>
+    <li><b>Stop ordering from the Amazon listing</b> until a human replies. One short message to Partong Store — "Is B0CDZYFMHC discontinued? I have been refunded three times." — and if you're refunded again, an A-to-z claim. Don't re-order into the same wall.</li>
+    <li><b>Set saved searches</b> on eBay and Mercari for <code>resin rabbit car ornament</code>, <code>bunny dashboard ornament</code>, <code>micro landscape rabbit figurine</code>. Discontinued things surface as dead stock and secondhand, and alerts are how you catch that.</li>
+    <li><b>Repair the one you have.</b> Still the only guaranteed win on this page: gel cyanoacrylate (not thin liquid superglue — it wicks into the crack and fogs glossy resin), held 30 seconds, plus a hidden pin if a limb is involved.</li>
+  </ol>
+
+  <h2>7. Bottom line</h2>
+  <div class="callout">
+    <b>Where this actually stands on 2 November 2026</b>
+    <p style="margin:8px 0 0">You still cannot buy him today, and I won't pretend otherwise. But the shape of the problem has changed in your favour: the Amazon listing is now <b>proven</b> to be a ghost rather than suspected, so you can stop burning evenings on it — and for the first time the <b>factory layer is open</b>, with named shops, stock counts and phone numbers in the right product family at fourteen cents a piece. What's left is not more searching. It's you looking at four photos.</p>
+  </div>
+
+  <div class="foot">
+    Companion files: <code>bunny-status-corrected.md</code> (Pass 3 status) · <code>find-my-bunny.html</code> (shopping card) · <code>who-makes-your-bunny.html</code> (factory hunt) · <code>bunny-research-notes.md</code> (running log, now including Part 4).
+  </div>
+
+</div>
+</body>
+</html>
